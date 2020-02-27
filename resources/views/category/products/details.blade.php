@@ -40,10 +40,12 @@
                                 <div class="description">
                                     <p><span>Quick Overview : </span> In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat.</p>
                                 </div>
-                                <form action="">
+                                <form action="{{route('add-cart')}}" method="post">
+                                    @csrf
                                     <div class="color-quality">
                                         <h6>Quality :</h6>
                                         <input type="number" name="qty" value="1" min="1" >
+                                        <input type="hidden" name="id" value="{{ $details->id }}" min="1" >
                                     </div>
                                     <div class="women">
                                         <span class="size">XL / XXL / S </span>

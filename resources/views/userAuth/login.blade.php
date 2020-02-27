@@ -3,6 +3,10 @@
     <!--content-->
     <div class="content">
         <!--login-->
+        <div class="well">
+            <h3 class="text-center text-success">Please Login to Complete Your order. If you do not have register, <br> <p>Please click here for</p> <strong><a
+                            href="{{route('/register')}}">Register</a></strong> </h3>
+        </div>
         <div class="login">
             <div class="main-agileits">
                 <div class="form-w3agile">
@@ -23,7 +27,6 @@
                 </div>
                 <div class="forg">
                     <a href="#" class="forg-left">Forgot Password</a>
-                    <a href="registered.html" class="forg-right">Register</a>
                     <div class="clearfix"></div>
                 </div>
             </div>

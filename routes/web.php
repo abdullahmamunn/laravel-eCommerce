@@ -107,7 +107,31 @@ Route::get('admin/delete/products/{id}',[
 
 // Check-out products
 
+Route::post('add/cart',[
+    'uses'=>'checkoutController@AddCart',
+    'as'=>'add-cart'
+    ]);
+
 Route::get('checkout/products',[
     'uses'=>'checkoutController@index',
-    'as' =>'checkout-products'
+    'as'  =>'checkout-products'
 ]);
+Route::get('delete/cart/item/{id}',[
+    'uses'=>'checkoutController@DeleteCartItem',
+    'as' =>'delete-cart-item'
+]);
+Route::post('update/cart',[
+    'uses'=>'checkoutController@UpdateCartItem',
+    'as' =>'update-cart'
+]);
+
+//Checkout user
+Route::get('checkout/user','CheckoutUserController@index')->name('checkout-user');
+Route::post('checkout/user/signup','CheckoutUserController@UserSignup')->name('user-signup');
+
+//shipping details
+
+Route::get('shipping/adress','CheckoutUserController@ShippingDetails');
+Route::post('shipping/save','CheckoutUserController@SaveShipping')->name('new-shipping');
+Route::get('checkout/payment','CheckoutUserController@PaymrntForm');
+Route::post('checkout/order','CheckoutUserController@NewOrder')->name('mew-order');

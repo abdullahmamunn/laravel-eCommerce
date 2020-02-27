@@ -11,95 +11,75 @@
     <div class="content">
         <div class="cart-items">
             <div class="container">
-                <h2>My Shopping Bag (3)</h2>
-                <script>$(document).ready(function(c) {
-                        $('.close1').on('click', function(c){
-                            $('.cart-header').fadeOut('slow', function(c){
-                                $('.cart-header').remove();
-                            });
-                        });
-                    });
-                </script>
-                <div class="cart-header">
-                    <div class="close1"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/p15.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
+                <h2 class="text-center">My Shopping </h2>
+                <table class="table table-striped table-hover ">
+                    <thead>
+                    <tr class="bg-primary">
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Quantity</th>
+                        <th>Product Photo</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @php($i=1)
+                    @php($sum = 0)
+                    @foreach($checkcart as $check )
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $check->name}}</td>
+                        <td>${{ $check->price }}</td>
+                        <td>
+                            <form action="{{ route('update-cart') }}" method="post">
+                                @csrf
+                                <input type="number" name="qty" value="{{ $check->quantity }}" min="1">
+                                <input type="hidden" name="id" value="{{ $check->id }}" min="1">
+                                <input type="submit" name="btn" value="update">
+                            </form>
 
-                    </div>
-                </div>
-                <script>$(document).ready(function(c) {
-                        $('.close2').on('click', function(c){
-                            $('.cart-header2').fadeOut('slow', function(c){
-                                $('.cart-header2').remove();
-                            });
-                        });
-                    });
-                </script>
-                <div class="cart-header2">
-                    <div class="close2"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/s1.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
+                        </td>
+                        <td>
+                            <img src="{{ asset($check->attributes->image) }}" alt="" height="100" width="100">
+                        </td>
+                        <td>${{ $total = $check->price*$check->quantity }}</td>
+                        <td>
+                            <a href="{{route('delete-cart-item',['id'=>$check->id])}}" class="btn btn-warning btn-xs">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
 
-                    </div>
-                </div>
-                <script>$(document).ready(function(c) {
-                        $('.close3').on('click', function(c){
-                            $('.cart-header3').fadeOut('slow', function(c){
-                                $('.cart-header3').remove();
-                            });
-                        });
-                    });
-                </script>
-                <div class="cart-header3">
-                    <div class="close3"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/i7.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                        <?php
+                        $sum = $sum + $total;
+                        ?>
+                    @endforeach
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Total Item's Price: </th>
+                        <td> ${{ $sum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Vat:</th>
+                        <td> ${{$vat = 0}}</td>
+                    </tr>
+                    <tr>
+                        <th>Grand total:</th>
+                        <td> ${{  $sum + $vat }}</td>
+                    </tr>
+
+                </table>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <a href="{{route('checkout-user')}}" class="btn btn-success pull-right">Checkout</a>
+                    <a href="" class="btn btn-success">Continue Shoping</a>
                 </div>
             </div>
         </div>
