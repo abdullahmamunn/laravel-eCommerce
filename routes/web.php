@@ -131,7 +131,8 @@ Route::post('checkout/user/signup','CheckoutUserController@UserSignup')->name('u
 
 //shipping details
 
-Route::get('shipping/adress','CheckoutUserController@ShippingDetails');
+Route::get('shipping/adress','CheckoutUserController@ShippingDetails')->name('checkout');
 Route::post('shipping/save','CheckoutUserController@SaveShipping')->name('new-shipping');
-Route::get('checkout/payment','CheckoutUserController@PaymrntForm');
+Route::get('checkout/payment','CheckoutUserController@PaymentForm')->name('payment');
 Route::post('checkout/order','CheckoutUserController@NewOrder')->name('mew-order');
+Route::get('complete/order','CheckoutUserController@CompleteOreder');

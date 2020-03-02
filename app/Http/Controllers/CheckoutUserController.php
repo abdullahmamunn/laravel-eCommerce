@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\customer;
+use App\order;
+use App\orderDetails;
+use App\payment;
 use App\Shipping;
 use Illuminate\Http\Request;
 use Mail;
 use Session;
+use Cart;
 
 class CheckoutUserController extends Controller
 {
@@ -53,13 +57,62 @@ class CheckoutUserController extends Controller
         return redirect('checkout/payment');
     }
 
-    public function PaymrntForm()
+    public function PaymentForm()
     {
         return view('payment.form');
     }
 
     public function NewOrder(Request $request)
     {
-        return $request->all();
+       $payemt_type = $request->payment_type;
+       if ($payemt_type == 'cash'){
+           $order = new order();
+           $order->customer_id = Session::get('customerId');
+           $order->shipping_id = Session::get('ShippingId');
+           $order->order_total = Session::get('orderTotal');
+           $order->save();
+
+           $payment = new payment();
+           $payment->order_id = $order->id;
+           $payment->payment_type = $payemt_type;
+           $payment->save();
+
+           // view the cart items
+           $CartItems = Cart::getContent();
+           foreach($CartItems as $CartItem) {
+               $orderDetail = new orderDetails();
+               $orderDetail->order_id         = $order->id;
+               $orderDetail->product_id       = $CartItem->id;
+               $orderDetail->product_name     = $CartItem->name;
+               $orderDetail->product_price    = $CartItem->price;
+               $orderDetail->product_quantity = $CartItem->quantity;
+               $orderDetail->save();
+           }
+           return redirect('complete/order');
+       }
+
+       elseif ($payemt_type == 'paypal'){
+            return $payemt_type;
+    }
+
+       elseif ($payemt_type == 'bkash')
+       {
+           return $payemt_type;
+       }
+       elseif ($payemt_type == 'roket')
+       {
+           return $payemt_type;
+       }
+       else
+           return "invalid";
+
+    }
+
+    public function CompleteOreder()
+    {
+//        $orderId = orderDetails::where('order_id',1);
+//            return $orderId;
+
+        return view('payment.complete-payment');
     }
 }

@@ -85,12 +85,12 @@ class ProductController extends Controller
 
     public function EditProducts($id)
     {
-       $product = product::find($id);
+       $product    = product::find($id);
        $categories = category::where('cat_status',1)->get();
 //                               ->where('id',$category_id)
 //                               ->select('categories.*','cat_name')
 //                               ->get();
-       $brands       = brand::where('publication_status',1)->get();
+       $brands      = brand::where('publication_status',1)->get();
 //                               ->where('id',$brand_id)
 //                               ->select('brands.*','brand_name')
 //                               ->get();

@@ -69,7 +69,10 @@
                     </tr>
                     <tr>
                         <th>Grand total:</th>
-                        <td> ${{  $sum + $vat }}</td>
+                        <td> ${{ $orderTotal = $sum + $vat }}</td>
+                        <?php
+                         Session::put('orderTotal',$orderTotal);
+                        ?>
                     </tr>
 
                 </table>
@@ -78,7 +81,13 @@
             </div>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <a href="{{route('checkout-user')}}" class="btn btn-success pull-right">Checkout</a>
+                    @if(Session::get('customerId') && Session::get('ShippingId'))
+                        <a href="{{route('payment')}}" class="btn btn-success pull-right">Checkout</a>
+                    @elseif(Session::get('customerId'))
+                        <a href="{{route('checkout')}}" class="btn btn-success pull-right">Checkout</a>
+                    @else
+                        <a href="{{route('checkout-user')}}" class="btn btn-success pull-right">Checkout</a>
+                    @endif
                     <a href="" class="btn btn-success">Continue Shoping</a>
                 </div>
             </div>
