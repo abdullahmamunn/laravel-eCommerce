@@ -22,6 +22,9 @@
                             <input type="text" class="form-control" name="phone" value="{{ $customer->phone }}">
                         </div>
                         <div class="form-group">
+                            <input type="text" class="form-control" name="address" value="{{ $customer->address }}">
+                        </div>
+                        <div class="form-group">
                             <input type="submit" class="btn btn-success" name="btn" value="continue pyment">
                         </div>
 

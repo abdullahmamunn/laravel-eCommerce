@@ -136,3 +136,13 @@ Route::post('shipping/save','CheckoutUserController@SaveShipping')->name('new-sh
 Route::get('checkout/payment','CheckoutUserController@PaymentForm')->name('payment');
 Route::post('checkout/order','CheckoutUserController@NewOrder')->name('mew-order');
 Route::get('complete/order','CheckoutUserController@CompleteOreder');
+
+//Customer login
+Route::post('customer-login',[
+    'uses'=>'CheckoutUserController@CustomerLogin',
+    'as'=>'customer-login'
+]);
+Route::post('customer-logout',[
+    'uses'=>'CheckoutUserController@CustomerLogout',
+    'as'=>'customer-logout'
+]);

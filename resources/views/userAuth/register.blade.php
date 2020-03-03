@@ -18,14 +18,21 @@
                                 <input  type="text" value="Username" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" required="">
                                 <div class="clearfix"></div>
                             </div>
+                            <span class="text text-danger">{{ $errors->has('email') ? $errors->first('email') : ' ' }}</span>
                             <div class="key">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input  type="text" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                <input  type="text" value="Email" name="email" id="title" class="@error('title') is-invalid @enderror" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
                                 <div class="clearfix"></div>
                             </div>
+
                             <div class="key">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <input  type="text" value="Phone number" name="phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+
+                                <textarea class="form-control" type="text" placeholder="         Your Address" name="address"></textarea>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="key">

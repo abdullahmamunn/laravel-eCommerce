@@ -21,10 +21,15 @@ class CheckoutUserController extends Controller
 
     public function UserSignup(Request $request)
     {
+        $validatedData = $request->validate([
+            'email' => 'required|unique:customers|max:255',
+        ]);
+
        $customer = new customer();
        $customer->username = $request->	username;
        $customer->email    = $request->	email;
        $customer->phone    = $request->	phone;
+       $customer->address    = $request->address;
        $customer->password = bcrypt($request->	password);
        $customer->save();
 
@@ -52,6 +57,7 @@ class CheckoutUserController extends Controller
         $newShipping->username = $request->username;
         $newShipping->email = $request->email;
         $newShipping->phone = $request->phone;
+        $newShipping->address = $request->address;
         $newShipping->save();
         Session::put('ShippingId',$newShipping->id);
         return redirect('checkout/payment');
@@ -114,5 +120,35 @@ class CheckoutUserController extends Controller
 //            return $orderId;
 
         return view('payment.complete-payment');
+    }
+
+    public function CustomerLogin(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => ['required'],
+        ]);
+        $customer = customer::where('email',$request->email)->first();
+        if (password_verify($request->password, $customer->password)) {
+            Session::put('customerId',$customer->id);
+            Session::put('Username',$customer->username);
+           return redirect('shipping/adress');
+        } else {
+           return redirect()->back();
+        }
+
+
+    }
+
+    public function CustomerLogout()
+    {
+        // Forget a single key...
+        Session::flush('customerId');
+        Session::flush('Username');
+
+        // Forget multiple keys...
+//        $request->session()->forget(['key1', 'key2']);
+//
+//        $request->session()->flush();
+        return redirect('/');
     }
 }
