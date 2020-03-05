@@ -47,10 +47,11 @@ class CheckoutUserController extends Controller
            $message->to($data['email']);
            $message->subject('Confirmation mail');
        });
-       if (Session::get('ShippingId'))
-                return redirect('shipping/adress');
-       else
+       if (Cart::session('id' == empty('')))
            return redirect('/');
+       else
+           return redirect('shipping/adress');
+
     }
 
     public function ShippingDetails()
@@ -138,7 +139,13 @@ class CheckoutUserController extends Controller
         if (password_verify($request->password, $customer->password)) {
             Session::put('customerId',$customer->id);
             Session::put('Username',$customer->username);
-            return redirect('/');
+            if (Cart::getContent()){
+                return redirect('shipping/adress');
+            }
+            else{
+                return redirect('/');
+            }
+
         } else {
             return redirect()->back();
         }
