@@ -12,8 +12,10 @@
     <meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
     <script src="{{asset('front-end/js/jquery.min.js')}}"></script>
     <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
     <!--search jQuery-->
     <script src="{{asset('front-end/js/main.js')}}"></script>
@@ -98,17 +100,15 @@
             <div class="top-right">
                 <ul>
                     <li><a href="{{route('checkout-products')}}">Checkout</a></li>
-                     @auth()
-                        <li><a href="#" onclick="document.getElementById('customerLogoutForm').submit();">Logout</a></li>
-
+                    @if(Session::get('customerId') && Session::get('Username'))
+                        <li><a href="#" onclick="document.getElementById('customerLogoutForm').submit();">Logout({{ Session::get('Username') }})</a></li>
                         <form action="{{route('customer-logout')}}" method="post" id="customerLogoutForm">
                             @csrf
                         </form>
-                    @endauth
-                    @guest()
+                    @else
                         <li><a href="{{route('/login')}}">Login</a></li>
                         <li><a href="{{route('/register')}}"> Create Account </a></li>
-                    @endguest
+                    @endif
                 </ul>
             </div>
             <div class="clearfix"></div>

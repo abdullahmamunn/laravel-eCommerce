@@ -127,6 +127,7 @@ Route::post('update/cart',[
 
 //Checkout user
 Route::get('checkout/user','CheckoutUserController@index')->name('checkout-user');
+Route::get('checkout/user/registration','CheckoutUserController@CheckoutUserRegistration');
 Route::post('checkout/user/signup','CheckoutUserController@UserSignup')->name('user-signup');
 
 //shipping details

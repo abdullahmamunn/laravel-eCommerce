@@ -7,6 +7,7 @@
             <h3 class="text-center text-success">Please Login to Complete Your order. If you do not have register, <br> <p>Please click here for</p> <strong><a
                             href="{{route('/register')}}">Register</a></strong> </h3>
         </div>
+
         <div class="login">
             <div class="main-agileits">
                 <div class="form-w3agile">

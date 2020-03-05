@@ -19,6 +19,11 @@ class CheckoutUserController extends Controller
         return view('userAuth.login');
     }
 
+    public function CheckoutUserRegistration()
+    {
+        return view('userAuth.register');
+    }
+
     public function UserSignup(Request $request)
     {
         $validatedData = $request->validate([
@@ -42,7 +47,10 @@ class CheckoutUserController extends Controller
            $message->to($data['email']);
            $message->subject('Confirmation mail');
        });
-       return redirect('shipping/adress');
+       if (Session::get('ShippingId'))
+                return redirect('shipping/adress');
+       else
+           return redirect('/');
     }
 
     public function ShippingDetails()
@@ -121,7 +129,6 @@ class CheckoutUserController extends Controller
 
         return view('payment.complete-payment');
     }
-
     public function CustomerLogin(Request $request)
     {
         $validatedData = $request->validate([
@@ -131,9 +138,9 @@ class CheckoutUserController extends Controller
         if (password_verify($request->password, $customer->password)) {
             Session::put('customerId',$customer->id);
             Session::put('Username',$customer->username);
-           return redirect('shipping/adress');
+            return redirect('/');
         } else {
-           return redirect()->back();
+            return redirect()->back();
         }
 
 
