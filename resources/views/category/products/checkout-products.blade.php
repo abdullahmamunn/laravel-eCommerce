@@ -88,7 +88,7 @@
                     @else
                         <a href="{{route('checkout-user')}}" class="btn btn-success pull-right">Checkout</a>
                     @endif
-                    <a href="" class="btn btn-success">Continue Shoping</a>
+                    <a href="{{route('/')}}" class="btn btn-success">Continue Shoping</a>
                 </div>
             </div>
         </div>

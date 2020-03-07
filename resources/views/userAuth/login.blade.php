@@ -14,14 +14,17 @@
                     <h3>Login To New Shop</h3>
                     <form action="{{ route('customer-login') }}" method="post">
                         @csrf
+                        <span class="text text-danger">{{ $errors->has('email') ? $errors->first('email') : ' ' }}</span>
                         <div class="key">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <input  type="text" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                            <input  type="text" value="{{ old('email') }}" name="email" placeholder="Email" >
+
                             <div class="clearfix"></div>
                         </div>
+                        <span class="text text-danger">{{ $errors->has('password') ? $errors->first('password') : ' ' }}</span>
                         <div class="key">
                             <i class="fa fa-lock" aria-hidden="true"></i>
-                            <input  type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                            <input  type="password" name="password" placeholder="Password" >
                             <div class="clearfix"></div>
                         </div>
                         <input type="submit" value="Login">

@@ -147,3 +147,7 @@ Route::post('customer-logout',[
     'uses'=>'CheckoutUserController@CustomerLogout',
     'as'=>'customer-logout'
 ]);
+
+//Manage Orders
+Route::get('admin/manage/orders','OrderController@index')->name('manage-order');
+Route::get('admin/manage/orders/details/{id}','OrderController@OrderDetails')->name('order-details');

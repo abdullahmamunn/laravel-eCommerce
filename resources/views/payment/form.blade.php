@@ -6,7 +6,7 @@
         <div class="content">
             <div class="well">
                 <h2 class="text-success text-center">Payment Method </h2> <br>
-                <p class="text-success text-center">Please selsect only <strong>One Method</strong></p>
+                <p class="text-success text-center">Please select only <strong>One Method</strong></p>
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 well">
@@ -16,15 +16,15 @@
                        <table class="table table-bordered">
                            <tr>
                                <th>Cash on Delivery</th>
-                               <td><input type="radio" name="payment_type" value="cash"> Cash on Delivery
-                                   <img src="{{asset('front-end/images/bkash.jpg')}}" alt="" height="50" width="150">
+                               <td><input type="radio" name="payment_type" value="cash"> Cash
+                                   <img src="{{asset('front-end/images/cash.png')}}" alt="" height="50" width="150">
                                </td>
                            </tr>
                            <tr>
-                               <th>Cash on Delivery</th>
+                               <th>Paypal</th>
                                <td>
                                    <input type="radio" name="payment_type" value="paypal"> Paypal
-                                   <img src="{{asset('front-end/images/bkash.jpg')}}" alt="" height="50" width="150">
+                                   <img src="{{asset('front-end/images/paypal.png')}}" alt="" height="50" width="150">
                                </td>
                            </tr>
                            <tr>
@@ -36,7 +36,7 @@
                            <tr>
                                <th>Roket</th>
                                <td><input type="radio" name="payment_type" value="roket"> Roket
-                                   <img src="{{asset('front-end/images/bkash.jpg')}}" alt="" height="50" width="150">
+                                   <img src="{{asset('front-end/images/roketpng.png')}}" alt="" height="50" width="150">
                                </td>
                            </tr>
                            <tr>

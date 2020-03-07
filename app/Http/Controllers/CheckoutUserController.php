@@ -47,10 +47,16 @@ class CheckoutUserController extends Controller
            $message->to($data['email']);
            $message->subject('Confirmation mail');
        });
-       if (Cart::session('id' == empty('')))
+       if (Cart::isEmpty())
+       {
            return redirect('/');
+       }
        else
+       {
            return redirect('shipping/adress');
+
+       }
+
 
     }
 
@@ -69,6 +75,8 @@ class CheckoutUserController extends Controller
         $newShipping->address = $request->address;
         $newShipping->save();
         Session::put('ShippingId',$newShipping->id);
+        Cart::clear();
+        Cart::session('customerId')->clear();
         return redirect('checkout/payment');
     }
 
@@ -134,21 +142,27 @@ class CheckoutUserController extends Controller
     {
         $validatedData = $request->validate([
             'email' => ['required'],
+            'password' => ['required']
         ]);
+
         $customer = customer::where('email',$request->email)->first();
         if (password_verify($request->password, $customer->password)) {
             Session::put('customerId',$customer->id);
             Session::put('Username',$customer->username);
-            if (Cart::getContent()){
-                return redirect('shipping/adress');
+            if (Cart::isEmpty()){
+                return redirect('/');
+
             }
             else{
-                return redirect('/');
+                return redirect('shipping/adress');
             }
 
-        } else {
+        }
+        else
+        {
             return redirect()->back();
         }
+
 
 
     }
