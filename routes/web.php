@@ -136,7 +136,7 @@ Route::get('shipping/adress','CheckoutUserController@ShippingDetails')->name('ch
 Route::post('shipping/save','CheckoutUserController@SaveShipping')->name('new-shipping');
 Route::get('checkout/payment','CheckoutUserController@PaymentForm')->name('payment');
 Route::post('checkout/order','CheckoutUserController@NewOrder')->name('mew-order');
-Route::get('complete/order','CheckoutUserController@CompleteOreder');
+Route::get('complete/order','CheckoutUserController@CompleteOrder');
 
 //Customer login
 Route::post('customer-login',[
@@ -151,3 +151,5 @@ Route::post('customer-logout',[
 //Manage Orders
 Route::get('admin/manage/orders','OrderController@index')->name('manage-order');
 Route::get('admin/manage/orders/details/{id}','OrderController@OrderDetails')->name('order-details');
+Route::get('admin/manage/orders/delete/{id}','OrderController@DeleteOrder')->name('delete-order');
+Route::get('admin/manage/orders/invoice/{id}','OrderController@OrderInvoice')->name('order-invoice');

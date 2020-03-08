@@ -75,8 +75,6 @@ class CheckoutUserController extends Controller
         $newShipping->address = $request->address;
         $newShipping->save();
         Session::put('ShippingId',$newShipping->id);
-        Cart::clear();
-        Cart::session('customerId')->clear();
         return redirect('checkout/payment');
     }
 
@@ -111,6 +109,7 @@ class CheckoutUserController extends Controller
                $orderDetail->product_quantity = $CartItem->quantity;
                $orderDetail->save();
            }
+           Cart::clear();
            return redirect('complete/order');
        }
 
@@ -131,7 +130,7 @@ class CheckoutUserController extends Controller
 
     }
 
-    public function CompleteOreder()
+    public function CompleteOrder()
     {
 //        $orderId = orderDetails::where('order_id',1);
 //            return $orderId;

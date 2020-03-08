@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\customer;
+use App\order;
+use App\orderDetails;
+use App\payment;
+use App\Shipping;
+Use Alert;
 use Illuminate\Http\Request;
 use DB;
 
@@ -20,6 +26,42 @@ class OrderController extends Controller
 
     public function OrderDetails($id)
     {
-       return view('admin.orders.order-details');
+       $order        = order::find($id);
+       $customer     = customer::find($order->customer_id);
+       $shipping     = Shipping::find($order->shipping_id);
+       $payment      = payment::where('order_id',$order->id)->first();
+       $orderDetails = orderDetails::where('order_id',$order->id)->get();
+
+       return view('admin.orders.order-details',[
+           'order'=>$order,
+           'customer'=>$customer,
+           'shipping'=>$shipping,
+           'payment'=>$payment,
+           'orderDetails'=>$orderDetails
+       ]);
+    }
+
+    public function OrderInvoice($id)
+    {
+        $order        = order::find($id);
+        $customer     = customer::find($order->customer_id);
+        $shipping     = Shipping::find($order->shipping_id);
+        $payment      = payment::where('order_id',$order->id)->first();
+        $orderDetails = orderDetails::where('order_id',$order->id)->get();
+
+        return view('admin.orders.invoice',[
+            'order'=>$order,
+            'customer'=>$customer,
+            'shipping'=>$shipping,
+            'payment'=>$payment,
+            'orderDetails'=>$orderDetails
+        ]);
+    }
+    public function DeleteOrder($id)
+    {
+        $delete = order::find($id);
+        $delete->delete();
+//        Alert::success('Success Title', 'Success Message');
+        return redirect('admin/manage/orders');
     }
 }
