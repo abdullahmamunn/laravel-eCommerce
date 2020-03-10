@@ -153,3 +153,4 @@ Route::get('admin/manage/orders','OrderController@index')->name('manage-order');
 Route::get('admin/manage/orders/details/{id}','OrderController@OrderDetails')->name('order-details');
 Route::get('admin/manage/orders/delete/{id}','OrderController@DeleteOrder')->name('delete-order');
 Route::get('admin/manage/orders/invoice/{id}','OrderController@OrderInvoice')->name('order-invoice');
+Route::get('admin/manage/download/invoice/{id}','OrderController@DownloadInvoice')->name('download-invoice');

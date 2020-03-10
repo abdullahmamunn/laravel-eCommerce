@@ -58,9 +58,9 @@
                     To
                     <address>
                         <strong>{{ $customer->username }}</strong><br>
-                       {{ $customer->address }}<br>
+                        {{ $customer->address }}<br>
                         {{ $customer->phone }}<br>
-                       {{ $customer->email }}
+                        {{ $customer->email }}
                     </address>
                 </div>
                 <!-- /.col -->
@@ -93,14 +93,14 @@
                         @php($sum = 0)
                         @php($item = 1)
                         @foreach($orderDetails as $orderDetail)
-                        <tr>
-                            <td>{{ $item++ }}</td>
-                            <td>{{ $orderDetail->product_name }}</td>
-                            <td>{{ $orderDetail->product_id  }}</td>
-                            <td>{{ $orderDetail->product_quantity }}</td>
-                            <td>{{ $orderDetail->product_price }}</td>
-                            <td>{{ $total = $orderDetail->product_price*$orderDetail->product_quantity }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ $item++ }}</td>
+                                <td>{{ $orderDetail->product_name }}</td>
+                                <td>{{ $orderDetail->product_id  }}</td>
+                                <td>{{ $orderDetail->product_quantity }}</td>
+                                <td>{{ $orderDetail->product_price }}</td>
+                                <td>{{ $total = $orderDetail->product_price*$orderDetail->product_quantity }}</td>
+                            </tr>
                             @php( $sum = $sum + $total)
                         @endforeach
                         </tbody>
@@ -114,10 +114,7 @@
                 <!-- accepted payments column -->
                 <div class="col-xs-6">
                     <p class="lead">Payment Methods:</p>
-                    <img src="{{asset('back-end/dist/img/credit/visa.png')}}" alt="Visa">
-                    <img src="{{asset('back-end/dist/img/credit/mastercard.png')}}" alt="Mastercard">
-                    <img src="{{asset('back-end/dist/img/credit/american-express.png')}}" alt="American Express">
-                    <img src="{{asset('back-end/dist/img/credit/paypal2.png')}}" alt="Paypal">
+
                     <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
                         dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
@@ -155,7 +152,7 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-xs-12">
-                    <a href="" onclick="print()" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                    <a href="#" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                     <a href="{{route('download-invoice',['id'=>$order->id])}}" class="btn btn-primary pull-right"> <i class="fa fa-download"></i> Generate PDF</a>
                 </div>
             </div>
