@@ -19,19 +19,32 @@ Route::get('/products/details/{id}',[
 //Route::get('{main_category}/{sub_category}',[
 //    'uses'=>'ProductsController@index',
 //    'as' => 'products.index']);
-Route::get('/admin',[
-    'uses'=>'AuthController@AdminLogin',
-    'as'=>'/admin'
+Route::prefix('/admin')->group(function (){
+    Route::get('/',[
+        'uses'=>'AuthController@AdminLoginForm',
+        'as'=>'/admin'
+    ]);
+    Route::post('/login',[
+        'uses'=>'AuthController@AdminLoginFormSubmit',
+        'as'=>'admin-login'
+    ]);
+    Route::get('/dashboard',[
+        'uses'=>'AuthController@AdminDashboard',
+        'as'=>'dashboard'
+    ]);
+    Route::post('/logout',[
+        'uses'=>'AuthController@AdminLogout',
+        'as'=>'admin-logout'
+    ]);
 
-]);
+});
 
 
-Route::get('/login',[
-    'uses'=>'AuthController@AuthSyetemLogin',
-    'as'=>'/login'
-]);
-Route::get('/registration',[
-    'uses'=>'AuthController@AuthSyetemRegistration',
+
+//user-login is here
+Route::get('user/login','AuthController@Userlogin')->name('user-login');
+Route::get('user/registration',[
+    'uses'=>'AuthController@AuthSystemRegistration',
     'as'=>'/register'
 ]);
 
@@ -154,3 +167,8 @@ Route::get('admin/manage/orders/details/{id}','OrderController@OrderDetails')->n
 Route::get('admin/manage/orders/delete/{id}','OrderController@DeleteOrder')->name('delete-order');
 Route::get('admin/manage/orders/invoice/{id}','OrderController@OrderInvoice')->name('order-invoice');
 Route::get('admin/manage/download/invoice/{id}','OrderController@DownloadInvoice')->name('download-invoice');
+
+
+
+Auth::routes();
+Route::resource('home', 'HomeController');

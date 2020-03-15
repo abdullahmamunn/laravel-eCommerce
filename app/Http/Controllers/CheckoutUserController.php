@@ -150,7 +150,6 @@ class CheckoutUserController extends Controller
             Session::put('Username',$customer->username);
             if (Cart::isEmpty()){
                 return redirect('/');
-
             }
             else{
                 return redirect('shipping/adress');

@@ -56,9 +56,6 @@
                                                 <a class="btn btn-success btn-xs" href="{{ route('order-invoice',['id'=>$user_orders->id]) }}" title="invoice">
                                                     <span class="fa fa-file-archive-o"></span>
                                                 </a>
-                                                <a class="btn btn-success btn-xs" href="">
-                                                    <span class="glyphicon glyphicon-download"></span>
-                                                </a>
                                                 <a class="btn btn-primary btn-xs" href="">
                                                     <span class="glyphicon glyphicon-edit"></span>
                                                 </a>

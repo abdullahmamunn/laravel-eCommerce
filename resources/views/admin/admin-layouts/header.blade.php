@@ -266,7 +266,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('back-end/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{ Session::get('name') }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -299,7 +299,10 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="#" onclick="document.getElementById('adminLogoutForm').submit();" class="btn btn-default btn-flat">Sign out</a>
+                                    <form action="{{route('admin-logout')}}" method="post" id="adminLogoutForm">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>

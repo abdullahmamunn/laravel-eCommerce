@@ -106,7 +106,7 @@
                             @csrf
                         </form>
                     @else
-                        <li><a href="{{route('/login')}}">Login</a></li>
+                        <li><a href="{{route('user-login')}}">Login</a></li>
                         <li><a href="{{route('/register')}}"> Create Account </a></li>
                     @endif
                 </ul>
