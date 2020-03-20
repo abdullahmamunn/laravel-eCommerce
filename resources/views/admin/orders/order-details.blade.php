@@ -5,11 +5,6 @@
             <h1 class="text-center">
                Order Details For This Order
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
-            </ol>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -48,7 +43,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="text-center">Shipping Information</h3>
+                            <h3 class="text-center">Shipping Address</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -80,7 +75,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="text-center">Payment Information</h3>
+                            <h3 class="text-center">Payment Info</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -104,7 +99,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="text-center">Order Information</h3>
+                            <h3 class="text-center">Order Info</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -136,7 +131,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="text-center">Products Information</h3>
+                            <h3 class="text-center">Products Info</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">

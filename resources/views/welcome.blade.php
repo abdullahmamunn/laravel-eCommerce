@@ -120,7 +120,7 @@
                                 <h6><a href="{{route('product-details',['id'=>$newItems->id])}}">{{$newItems->product_name}}</a></h6>
                                 <span class="size">XL / XXL / S </span>
                                 <p ><del>$100.00</del><em class="item_price"> ${{$newItems->product_price}}</em></p>
-                                <a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                <a href="{{route('product-details',['id'=>$newItems->id])}}" data-text="Add To Cart" class="my-cart-b item_add">Buy Now</a>
                             </div>
                         </div>
                     </div>

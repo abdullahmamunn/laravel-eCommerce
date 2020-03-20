@@ -1,6 +1,12 @@
 @extends('admin.admin-layouts.master')
 @section('content')
     <div class="content-wrapper">
+        <section class="content-header margin-bottom">
+            <h1>
+                New Shop
+                <small>Product add</small>
+            </h1>
+        </section>
      <div class="row">
          <div class="col-md-10 col-md-offset-1">
              <div class="panel panel-default">

@@ -3,20 +3,15 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Data Tables
-            <small>advanced tables</small>
+           New Shop
+            <small>Brand</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
-        </ol>
     </section>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 class="text text-capitalize">Add new Brand</h2>
+                    <h2 class="text text-capitalize text-center">Add new Brand</h2>
                 </div>
                 <div class="panel-body">
                     <form action="{{route('store-brand')}}" method="post" class="form-horizontal">

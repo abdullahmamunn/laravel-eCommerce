@@ -26,7 +26,7 @@
                                     <label class="col-md-4 control-label">Brand Name</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="brand_name" placeholder="Brand Name" value="{{ $brand->brand_name }}">
-                                        <input type="text" class="form-control" name="brand_id" placeholder="Brand Name" value="{{ $brand->id }}">
+                                        <input type="hidden" class="form-control" name="brand_id" placeholder="Brand Name" value="{{ $brand->id }}">
                                         <span class="text text-danger">{{ $errors->has('brand_name') ? $errors->first('brand_name') : ' ' }}</span>
                                     </div>
                                 </div>

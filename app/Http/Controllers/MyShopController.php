@@ -19,7 +19,7 @@ class MyShopController extends Controller
                  ->take(8)
                  ->get();
         //return $products;
-        Alert::alert('welcome', 'Message', 'Welcome to Dashboard');
+       // Alert::alert('welcome', 'Message', 'Welcome to Dashboard');
         return view('welcome',[
             'product'=>$products,
         ]);

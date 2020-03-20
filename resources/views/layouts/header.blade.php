@@ -95,7 +95,8 @@
     <div class="header-top">
         <div class="container">
             <div class="top-left">
-                <a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +0123-456-789</a>
+                <a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +01982-326583</a>
+                <a href=""><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Mirpur-2</a>
             </div>
             <div class="top-right">
                 <ul>

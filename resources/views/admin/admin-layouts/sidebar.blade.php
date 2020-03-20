@@ -8,7 +8,7 @@
                 <img src="{{asset('back-end/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>{{ Session::get('name') }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -60,10 +60,6 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('add-product') }}"><i class="fa fa-circle-o"></i>Add product</a></li>
                     <li><a href="{{route('manage-product')}}"><i class="fa fa-circle-o"></i>Manages products</a></li>
-                    <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                    <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                    <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                    <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
                 </ul>
             </li>
             <li class="treeview">
