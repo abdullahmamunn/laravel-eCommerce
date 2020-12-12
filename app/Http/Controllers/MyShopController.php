@@ -25,7 +25,6 @@ class MyShopController extends Controller
         ]);
     }
 
-
     public function products($id,$category_name)
     {
         $categories = product::where('category_id',$id)

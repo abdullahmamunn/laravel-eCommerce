@@ -32,6 +32,7 @@ Route::prefix('/admin')->group(function (){
         'uses'=>'AuthController@AdminDashboard',
         'as'=>'dashboard'
     ]);
+
     Route::post('/logout',[
         'uses'=>'AuthController@AdminLogout',
         'as'=>'admin-logout'
