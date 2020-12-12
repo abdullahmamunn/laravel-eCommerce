@@ -248,23 +248,7 @@
                                     <div id="myTabContent" class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                                             <div class="descr">
-                                                <h4>Suspendisse laoreet, augue vel mattis </h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                                                <p class="quote">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                                                <div class="video">
-                                                    <iframe src="https://player.vimeo.com/video/22158502" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                                </div>
-                                                <ul>
-                                                    <li> Twin button front fastening</li>
-                                                    <li> Length:65cm</li>
-                                                    <li> Regular fit</li>
-                                                    <li> Notched lapels</li>
-                                                    <li> Internal pockets</li>
-                                                    <li> Centre-back vent </li>
-                                                    <li> Material : Outer: 40% Linen &amp; 40% Polyamide; Body Lining: 100% Cotton; Lining: 100% Acetate</li>
-                                                </ul>
-                                                <p class="quote">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-
+                                
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
